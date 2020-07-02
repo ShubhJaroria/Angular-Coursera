@@ -20,9 +20,6 @@ import { MenuComponent } from './menu/menu.component';
   imports: [
     BrowserModule,
 	BrowserAnimationsModule,
-	MatGridListModule,
-    MatCardModule,
-    MatButtonModule,
 	MatListModule,
     MatToolbarModule,
     FlexLayoutModule
