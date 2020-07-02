@@ -1,0 +1,2 @@
+<mat-toolbar color="primary"> <span>Ristorante Con sFusion</span> </mat-toolbar>
+<app-menu>hi</app-menu>

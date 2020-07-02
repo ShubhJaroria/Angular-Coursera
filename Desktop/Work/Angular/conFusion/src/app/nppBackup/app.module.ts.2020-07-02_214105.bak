@@ -17,7 +17,6 @@ import { MenuComponent } from './menu/menu.component';
   imports: [
     BrowserModule,
 	BrowserAnimationsModule,
-	MatListModule,
     MatToolbarModule,
     FlexLayoutModule
   ],
