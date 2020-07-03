@@ -16,6 +16,8 @@ body {
     display:flex;
 }
 
+. . .
+
 
 $lt-gray: #ddd;
 $background-dark: #512DA8;
@@ -34,6 +36,7 @@ $divider-color:        #BDBDBD;
     margin: 0px auto;
     padding: $pad-up-down $pad-left-right;
 }
+
 
 
 .background-primary {
