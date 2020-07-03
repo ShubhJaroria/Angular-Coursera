@@ -54,7 +54,7 @@ import { DishdetailComponent } from './dishdetail/dishdetail.component';
 export class MenuComponent implements OnInit {
 	
   dishes: Dish[] = DISHES;
-  selectedDish: Dish = DISHES[0];
+  selectedDish: dishdetail = dish;
   
   constructor() { }
 
