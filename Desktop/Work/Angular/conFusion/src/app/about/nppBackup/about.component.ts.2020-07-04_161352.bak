@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Leader } from '../shared/leader';
 import { LeaderService } from '../services/leader.service';
 
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -11,10 +12,13 @@ export class AboutComponent implements OnInit {
 
   leaders: Leader[];
 
-  constructor(private leaderservice: LeaderService) { }
+  constructor(private leaderservice: LeaderService,
+    private route: ActivatedRoute,
+    private location: Location) { }
 
   ngOnInit() {
-    this.leaders = this.leaderservice.getLeaders();
+    let id = this.route.snapshot.params['id'];
+    this.leader = this.leaderservice.getDish(id);
   }
 
 }
