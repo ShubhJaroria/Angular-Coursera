@@ -47,7 +47,7 @@ import { PromotionService } from './services/promotion.service';
   ],
   providers: [
 	DishService,
-	PromotionService
+  
   ],
   bootstrap: [AppComponent]
 })
