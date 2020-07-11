@@ -8,12 +8,14 @@ import { LEADERS } from '../shared/leaders';
 export class LeaderService {
 
   constructor() { }
-
-  getLeaders(): Leader[] {
+  getLeaders(): Leaders[] {
     return LEADERS;
   }
-
+  getLeader(id: string): Leader {
+    return LEADER.filter((leader) => (leader.id === id))[0];
+  }
   getFeaturedLeader(): Leader {
     return LEADERS.filter((leader) => leader.featured)[0];
   }
+
 }
