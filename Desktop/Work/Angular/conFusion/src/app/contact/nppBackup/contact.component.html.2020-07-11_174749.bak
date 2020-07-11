@@ -39,7 +39,7 @@
     <h3>Send us your Feedback</h3>
     <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
 
-    <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+    <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width">
           <input matInput formControlName="firstname" placeholder="First Name" type="text">
@@ -57,7 +57,6 @@
         </mat-form-field>
         <mat-form-field class="half-width">
           <input matInput formControlName="email" placeholder="Email" type="email">
-		   <mat-error *ngIf="feedbackForm.get('email').hasError('required') && feedbackForm.get('email').touched">Email ID is required</mat-error>
         </mat-form-field>
       </p>
       <table class="form-size">
