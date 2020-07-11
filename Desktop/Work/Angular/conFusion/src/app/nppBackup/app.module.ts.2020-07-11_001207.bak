@@ -58,10 +58,7 @@ import { LoginComponent } from './login/login.component';
 	MatFormFieldModule, 
     MatInputModule,
     MatCheckboxModule,
-	FormsModule,
-	MatSelectModule,
-    MatSlideToggleModule,
-	ReactiveFormsModule
+	FormsModule
   ],
   providers: [
 	DishService,
