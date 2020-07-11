@@ -63,8 +63,7 @@ import { LoginComponent } from './login/login.component';
 	FormsModule,
 	MatSelectModule,
     MatSlideToggleModule,
-	ReactiveFormsModule,
-	MatProgressSpinnerModule
+	ReactiveFormsModule
   ],
   providers: [
 	DishService,

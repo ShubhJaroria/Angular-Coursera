@@ -9,10 +9,7 @@ export class LeaderService {
 
   constructor() { }
   getLeaders(): Promise<Leaders[]> {
-    return new Promise(resolve=> {
-      // Simulate server latency with 2 second delay
-        setTimeout(() => resolve(LEADERS), 2000);
-    })
+    return Promise.resolve(LEADERS);
   }
   getLeader(id: string): Promise<Leader> {
     return new Promise(resolve=> {
