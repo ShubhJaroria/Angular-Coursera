@@ -16,7 +16,7 @@ export class LeaderService {
   getLeader(id: string): Observable<Leader> {
     return of(LEADERS.filter((leader) => (leader.id === id))[0]).pipe(delay(2000));
   }
-  getFeaturedLeader(): Observable<Leader> {
+  getFeaturedLeader(): Promise<Leader> {
     return of(LEADERS.filter((leader) => leader.featured)[0]).pipe(delay(2000));
   }
 
