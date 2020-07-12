@@ -23,6 +23,7 @@
         <button mat-button>LIKE</button>
         <button mat-button>SHARE</button>
 		<span class="flex-spacer"></span>
+        <button mat-button [routerLink]="['/dishdetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
       </mat-card-actions>
     </mat-card>
   </div>
@@ -34,34 +35,53 @@
 		<p matLine> {{comment_it.comment}} </p>
 		<p matLine> {{comment_it.rating}} Stars </p>
 		<p matLine> -- {{comment_it.author}} {{comment_it.date | date}} </p>
+		
 	</mat-list-item>
-	<div [hidden] = "feedbackForm.invalid">
-		<mat-list-item>
-			<p matLine> {{feedbackForm.value.comment}} </p>
-			<p matLine> {{feedbackForm.value.rating}} Stars </p>
-			<p matLine> -- {{feedbackForm.value.name}} </p>
-		</mat-list-item>
-	</div>
 	</mat-list>
-    
-	<div class="form-size">
+  </div>
+  
+  <div fxFlex fxFlexOffset="20px" class="form-size">
+
     <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width">
           <input matInput formControlName="name" placeholder="Name" type="text" required>
           <mat-error *ngIf="formErrors.name">{{formErrors.name}}</mat-error>
         </mat-form-field>
+        <mat-form-field class="half-width">
+          <input matInput formControlName="lastname" placeholder="Last Name" type="text" required>
+          <mat-error *ngIf="formErrors.lastname">{{formErrors.lastname}}</mat-error>
+        </mat-form-field>
       </p>
-         <mat-slider formControlName="rating" min="1" max="5" step="1" value="5" thumbLabel tickInterval="1"> </mat-slider> 
+      <p>
+        <mat-form-field class="half-width">
+          <input matInput formControlName="telnum" placeholder="Tel. Number" type="tel" pattern="[0-9]*" required>
+          <mat-error *ngIf="formErrors.telnum">{{formErrors.telnum}}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="half-width">
+          <input matInput formControlName="email" placeholder="Email" type="email" email required>
+          <mat-error *ngIf="formErrors.email">{{formErrors.email}}</mat-error>
+        </mat-form-field>
+      </p>
+      <table class="form-size">
+        <td>
+          <mat-slide-toggle formControlName="agree">May we contact you?</mat-slide-toggle>
+        </td>
+        <td>
+          <mat-select placeholder="How?" formControlName="contacttype">
+            <mat-option *ngFor="let ctype of contactType" [value]="ctype">
+              {{ ctype }}
+            </mat-option>
+          </mat-select>
+        </td>
+        </table>
       <p>
         <mat-form-field class="full-width">
-          <textarea matInput formControlName="comment" placeholder="Your Comment" rows=12 required></textarea>
+          <textarea matInput formControlName="message" placeholder="Your Feedback" rows=12></textarea>
         </mat-form-field>
       </p>
       <button type="submit" [disabled] = "feedbackForm.invalid" mat-button class="background-primary text-floral-white">Submit</button>
-	  
     </form>
-	
   </div> 
   
   <div [hidden]="dish">

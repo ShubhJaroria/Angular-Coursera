@@ -54,7 +54,7 @@ export class DishdetailComponent implements OnInit {
     this.feedbackForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)] ],
       comment: ['', [Validators.required] ],
-	  rating: ['5']
+	  rating: ['']
     });
 	
     this.feedbackForm.valueChanges
@@ -92,20 +92,13 @@ export class DishdetailComponent implements OnInit {
   onSubmit() {
     this.feedbackcomment = this.feedbackForm.value;
     console.log(this.feedbackcomment);
-    
-	this.dish.comments.push({
-		rating: this.feedbackcomment.rating,
-		comment: this.feedbackcomment.comment,
-		author: this.feedbackcomment.name,
-		date: Date.now()
-		})
-	
-	this.feedbackFormDirective.resetForm();
-	this.feedbackForm.reset({
+    this.feedbackForm.reset({
       name: '',
       comment: '',
-	  rating: '5'
+	  rating: ''
     });
+	this.feedbackFormDirective.resetForm();
+
   }
   
   goBack(): void {

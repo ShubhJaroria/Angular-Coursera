@@ -21,10 +21,10 @@ export class DishdetailComponent implements OnInit {
   prev: string;
   next: string;
   feedbackForm: FormGroup;
-  commentfeedback: commentFeedback;
+  feedback: Feedback;
   
   formErrors = {
-    'name': 'Name',
+    'firstname': 'Name',
     'comment': 'Your Comment'
   };
 
@@ -34,7 +34,7 @@ export class DishdetailComponent implements OnInit {
       'minlength':     'Author Name must be at least 2 characters long.',
     },
     'comment': {
-      'required':      'Feedback is required.',
+      'required':      'Last Name is required.',
     },
   };
   
@@ -53,8 +53,7 @@ export class DishdetailComponent implements OnInit {
   createForm() {
     this.feedbackForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)] ],
-      comment: ['', [Validators.required] ],
-	  rating: ['5']
+      comment: ['', [Validators.required] ]
     });
 	
     this.feedbackForm.valueChanges
@@ -87,25 +86,6 @@ export class DishdetailComponent implements OnInit {
     const index = this.dishIds.indexOf(dishId);
     this.prev = this.dishIds[(this.dishIds.length + index - 1) % this.dishIds.length];
     this.next = this.dishIds[(this.dishIds.length + index + 1) % this.dishIds.length];
-  }
-  
-  onSubmit() {
-    this.feedbackcomment = this.feedbackForm.value;
-    console.log(this.feedbackcomment);
-    
-	this.dish.comments.push({
-		rating: this.feedbackcomment.rating,
-		comment: this.feedbackcomment.comment,
-		author: this.feedbackcomment.name,
-		date: Date.now()
-		})
-	
-	this.feedbackFormDirective.resetForm();
-	this.feedbackForm.reset({
-      name: '',
-      comment: '',
-	  rating: '5'
-    });
   }
   
   goBack(): void {

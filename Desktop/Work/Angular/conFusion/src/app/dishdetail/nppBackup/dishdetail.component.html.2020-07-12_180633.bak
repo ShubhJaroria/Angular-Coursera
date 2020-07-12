@@ -35,16 +35,8 @@
 		<p matLine> {{comment_it.rating}} Stars </p>
 		<p matLine> -- {{comment_it.author}} {{comment_it.date | date}} </p>
 	</mat-list-item>
-	<div [hidden] = "feedbackForm.invalid">
-		<mat-list-item>
-			<p matLine> {{feedbackForm.value.comment}} </p>
-			<p matLine> {{feedbackForm.value.rating}} Stars </p>
-			<p matLine> -- {{feedbackForm.value.name}} </p>
-		</mat-list-item>
-	</div>
 	</mat-list>
-    
-	<div class="form-size">
+
     <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width">
@@ -52,7 +44,7 @@
           <mat-error *ngIf="formErrors.name">{{formErrors.name}}</mat-error>
         </mat-form-field>
       </p>
-         <mat-slider formControlName="rating" min="1" max="5" step="1" value="5" thumbLabel tickInterval="1"> </mat-slider> 
+      <input formControlName="rating" type="range" mat-slider min="1" max="5" step="1" value="5" thumbLabel tickInterval="1"> </mat-slider>
       <p>
         <mat-form-field class="full-width">
           <textarea matInput formControlName="comment" placeholder="Your Comment" rows=12 required></textarea>
@@ -61,7 +53,6 @@
       <button type="submit" [disabled] = "feedbackForm.invalid" mat-button class="background-primary text-floral-white">Submit</button>
 	  
     </form>
-	
   </div> 
   
   <div [hidden]="dish">

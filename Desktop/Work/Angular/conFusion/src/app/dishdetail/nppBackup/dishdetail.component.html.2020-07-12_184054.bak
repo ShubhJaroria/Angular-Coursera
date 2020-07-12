@@ -44,7 +44,7 @@
 	</div>
 	</mat-list>
     
-	<div class="form-size">
+	<div *ngIf="dish">
     <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width">
@@ -61,7 +61,7 @@
       <button type="submit" [disabled] = "feedbackForm.invalid" mat-button class="background-primary text-floral-white">Submit</button>
 	  
     </form>
-	
+	</div>
   </div> 
   
   <div [hidden]="dish">

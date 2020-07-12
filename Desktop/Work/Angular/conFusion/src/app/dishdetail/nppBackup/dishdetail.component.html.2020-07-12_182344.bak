@@ -35,16 +35,11 @@
 		<p matLine> {{comment_it.rating}} Stars </p>
 		<p matLine> -- {{comment_it.author}} {{comment_it.date | date}} </p>
 	</mat-list-item>
-	<div [hidden] = "feedbackForm.invalid">
-		<mat-list-item>
-			<p matLine> {{feedbackForm.value.comment}} </p>
-			<p matLine> {{feedbackForm.value.rating}} Stars </p>
-			<p matLine> -- {{feedbackForm.value.name}} </p>
-		</mat-list-item>
-	</div>
+	<mat-list-item [disabled] = "feedbackForm.invalid">
+		<p matLine>hi</p>
+	</mat-list-item>
 	</mat-list>
-    
-	<div class="form-size">
+
     <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width">
@@ -61,7 +56,6 @@
       <button type="submit" [disabled] = "feedbackForm.invalid" mat-button class="background-primary text-floral-white">Submit</button>
 	  
     </form>
-	
   </div> 
   
   <div [hidden]="dish">
