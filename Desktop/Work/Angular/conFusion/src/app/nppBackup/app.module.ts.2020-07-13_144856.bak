@@ -76,8 +76,7 @@ import { baseURL } from './shared/baseurl';
   providers: [
 	DishService,
 	PromotionService,
-	LeaderService,
-	{provide: 'BaseURL', useValue: baseURL}
+	LeaderService
   ],
   entryComponents: [
     LoginComponent

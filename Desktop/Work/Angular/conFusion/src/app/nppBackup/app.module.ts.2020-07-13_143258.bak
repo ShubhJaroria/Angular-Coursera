@@ -19,7 +19,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSliderModule } from '@angular/material/slider';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import 'hammerjs';
@@ -70,14 +69,13 @@ import { baseURL } from './shared/baseurl';
 	ReactiveFormsModule,
 	MatProgressSpinnerModule,
 	MatSliderModule,
-	HttpModule,
 	HttpClientModule
   ],
   providers: [
 	DishService,
 	PromotionService,
 	LeaderService,
-	{provide: 'BaseURL', useValue: baseURL}
+    {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [
     LoginComponent
