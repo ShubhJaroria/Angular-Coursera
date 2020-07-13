@@ -10,14 +10,14 @@
     <mat-card >
       <mat-card-header>
         <mat-card-title>
-          <h3 *ngIf="dish" [@visibility]="visibility">{{dish.name | uppercase}}</h3>
+          <h3 *ngIf="dish">{{dish.name | uppercase}}</h3>
         </mat-card-title>
       </mat-card-header>
       <img mat-card-image src="{{ baseURL + dish.image }}" alt={{dish.name}}>
       <mat-card-content>
 		<p>{{dish.description}}</p> 
       </mat-card-content>
-	  <span class="flex-spacer"></span>
+	  
       <mat-card-actions>
 	    <button mat-button [routerLink]="['/dishdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
 	    <button mat-button (click)="goBack()">BACK</button>
@@ -25,12 +25,12 @@
         <button mat-button>SHARE</button>
 	    <button mat-button [routerLink]="['/dishdetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
 		
-		
+	<span class="flex-spacer"></span>	
       </mat-card-actions>
     </mat-card>
   </div>
   
-  <div fxFlex="40" *ngIf="dish" [@visibility]="visibility">
+  <div fxFlex="40" *ngIf="dish">
 	<mat-list>
 	<h1 matLine> Comments </h1>
     <mat-list-item *ngFor="let comment_it of dish.comments">
