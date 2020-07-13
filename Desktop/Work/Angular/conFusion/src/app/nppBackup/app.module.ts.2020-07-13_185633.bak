@@ -78,7 +78,7 @@ import { baseURL } from './shared/baseurl';
 	DishService,
 	PromotionService,
 	LeaderService,
-	ProcessHTTPMsgService,
+	ProcessHTTPMsgService
 	{provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [
