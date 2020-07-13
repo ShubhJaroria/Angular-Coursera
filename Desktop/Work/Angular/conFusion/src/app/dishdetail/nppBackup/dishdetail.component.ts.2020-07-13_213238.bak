@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
+import { Comment } from './shared/comment'
 
 @Component({
   selector: 'app-dishdetail',
@@ -22,20 +23,15 @@ export class DishdetailComponent implements OnInit {
   next: string;
   errMess: string;
   feedbackForm: FormGroup;
-  commentfeedback: {
-	rating: number;
-    comment: string;
-    author: string;
-    date: string;
-  }
+  commentfeedback: Comment;
   
   formErrors = {
-    'author': 'Name',
+    'name': 'Name',
     'comment': 'Your Comment'
   };
 
   validationMessages = {
-    'author': {
+    'name': {
       'required':      'Author Name is required.',
       'minlength':     'Author Name must be at least 2 characters long.',
     },
@@ -62,10 +58,9 @@ export class DishdetailComponent implements OnInit {
   
   createForm() {
     this.feedbackForm = this.fb.group({
-      rating: ['5'],
-	  author: ['', [Validators.required, Validators.minLength(2)] ],
+      name: ['', [Validators.required, Validators.minLength(2)] ],
       comment: ['', [Validators.required] ],
-	  date: ''
+	  rating: ['5']
     });
 	
     this.feedbackForm.valueChanges
@@ -75,8 +70,7 @@ export class DishdetailComponent implements OnInit {
   }
   
   onValueChanged(data?: any) {
-
-	if (!this.feedbackForm) { return; }
+    if (!this.feedbackForm) { return; }
     const form = this.feedbackForm;
     for (const field in this.formErrors) {
       if (this.formErrors.hasOwnProperty(field)) {
@@ -103,22 +97,21 @@ export class DishdetailComponent implements OnInit {
   
   onSubmit() {
     this.commentfeedback = this.feedbackForm.value;
-	//this.commentfeedback.date = Date.now().toISOString();
-    //console.log(this.commentfeedback);
+    console.log(this.commentfeedback);
     
 	this.dishcopy.comments.push({
 		rating: parseInt(this.commentfeedback.rating),
 		comment: this.commentfeedback.comment,
-		author: this.commentfeedback.author,
+		author: this.commentfeedback.name,
 		date: Date.now()
 		})
 	
-   this.dishservice.putDish(this.dishcopy)
+   /* this.dishservice.putDish(this.dishcopy)
       .subscribe(dish => {
         this.dish = dish; this.dishcopy = dish;
       },
       errmess => { this.dish = null; this.dishcopy = null; this.errMess = <any>errmess; });
-	  
+	 */ 
 	this.feedbackFormDirective.resetForm();
 	this.feedbackForm.reset({
       name: '',

@@ -51,8 +51,8 @@
     <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="half-width">
-          <input matInput formControlName="author" placeholder="Name" type="text" required>
-          <mat-error *ngIf="formErrors.name">{{formErrors.author}}</mat-error>
+          <input matInput formControlName="name" placeholder="Name" type="text" required>
+          <mat-error *ngIf="formErrors.name">{{formErrors.name}}</mat-error>
         </mat-form-field>
       </p>
          <mat-slider formControlName="rating" min="1" max="5" step="1" value="5" thumbLabel tickInterval="1"> </mat-slider> 

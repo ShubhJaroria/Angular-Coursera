@@ -65,7 +65,7 @@ export class DishdetailComponent implements OnInit {
       rating: ['5'],
 	  author: ['', [Validators.required, Validators.minLength(2)] ],
       comment: ['', [Validators.required] ],
-	  date: ''
+	  date: Date.now()
     });
 	
     this.feedbackForm.valueChanges
@@ -75,8 +75,7 @@ export class DishdetailComponent implements OnInit {
   }
   
   onValueChanged(data?: any) {
-
-	if (!this.feedbackForm) { return; }
+    if (!this.feedbackForm) { return; }
     const form = this.feedbackForm;
     for (const field in this.formErrors) {
       if (this.formErrors.hasOwnProperty(field)) {
@@ -104,7 +103,7 @@ export class DishdetailComponent implements OnInit {
   onSubmit() {
     this.commentfeedback = this.feedbackForm.value;
 	//this.commentfeedback.date = Date.now().toISOString();
-    //console.log(this.commentfeedback);
+    console.log(this.commentfeedback);
     
 	this.dishcopy.comments.push({
 		rating: parseInt(this.commentfeedback.rating),
@@ -113,12 +112,12 @@ export class DishdetailComponent implements OnInit {
 		date: Date.now()
 		})
 	
-   this.dishservice.putDish(this.dishcopy)
+   /* this.dishservice.putDish(this.dishcopy)
       .subscribe(dish => {
         this.dish = dish; this.dishcopy = dish;
       },
       errmess => { this.dish = null; this.dishcopy = null; this.errMess = <any>errmess; });
-	  
+	 */ 
 	this.feedbackFormDirective.resetForm();
 	this.feedbackForm.reset({
       name: '',

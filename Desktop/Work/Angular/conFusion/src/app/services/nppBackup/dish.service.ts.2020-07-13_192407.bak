@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Dish } from '../shared/dish';
 import { DISHES } from '../shared/dishes';
 import { Observable } from 'rxjs';
-import { map, catchError, delay } from 'rxjs/operators';
+import { map, catchError, delay, map } from 'rxjs/operators';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { baseURL } from '../shared/baseurl';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
