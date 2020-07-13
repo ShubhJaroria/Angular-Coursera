@@ -8,7 +8,7 @@ import { switchMap } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { Comment } from '../shared/comment'
-import { visibility, flyInOut, expand } from '../animations/app.animation';
+import { visibility } from '../animations/app.animation';
 
 @Component({
   selector: 'app-dishdetail',
@@ -18,7 +18,7 @@ import { visibility, flyInOut, expand } from '../animations/app.animation';
   '[@flyInOut]': 'true',
   'style': 'display: block;'
   },
-  animations: [visibility(), flyInOut(), expand()]
+  animations: [visibility(), flyInOut()]
 })
 export class DishdetailComponent implements OnInit {
   

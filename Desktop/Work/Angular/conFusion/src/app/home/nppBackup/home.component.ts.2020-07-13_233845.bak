@@ -15,7 +15,7 @@ import { flyInOut, expand } from '../animations/app.animation';
   '[@flyInOut]': 'true',
   'style': 'display: block;'
   },
-  animations: [flyInOut(), expand()]
+  animations: [flyInOut()]
 })
 export class HomeComponent implements OnInit {
 

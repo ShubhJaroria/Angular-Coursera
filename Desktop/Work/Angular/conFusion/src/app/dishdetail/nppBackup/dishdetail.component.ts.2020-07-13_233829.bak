@@ -18,7 +18,7 @@ import { visibility, flyInOut, expand } from '../animations/app.animation';
   '[@flyInOut]': 'true',
   'style': 'display: block;'
   },
-  animations: [visibility(), flyInOut(), expand()]
+  animations: [visibility(), flyInOut()]
 })
 export class DishdetailComponent implements OnInit {
   
