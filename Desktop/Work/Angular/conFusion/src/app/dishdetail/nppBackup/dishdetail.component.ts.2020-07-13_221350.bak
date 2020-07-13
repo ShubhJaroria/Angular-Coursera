@@ -107,10 +107,10 @@ export class DishdetailComponent implements OnInit {
     //console.log(this.commentfeedback);
     
 	this.dishcopy.comments.push({
-		rating: this.commentfeedback.rating,
+		rating: parseInt(this.commentfeedback.rating),
 		comment: this.commentfeedback.comment,
 		author: this.commentfeedback.author,
-		date: Date.now().toISOString()
+		date: Date.now()
 		})
 	
    this.dishservice.putDish(this.dishcopy)
