@@ -89,7 +89,7 @@
 	How?: {{feedback.contacttype}} <br>
 	Feedback: {{feedback.message}}
   </div>
-  <div *ngIf="inProgress" [@expand]>
+  <div *ngIf="inProgress">
     <mat-spinner></mat-spinner><h4>Submission in Progress . . . Please Wait</h4>
   </div>
   <div fxFlex *ngIf="errMess">

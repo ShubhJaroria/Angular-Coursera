@@ -112,12 +112,7 @@ export class DishdetailComponent implements OnInit {
     this.commentfeedback = this.feedbackForm.value;
 	//this.commentfeedback.date = Date.now().toISOString();
     //console.log(this.commentfeedback);
-    psd_comment: Comment;
-	psd_comment.rating: this.commentfeedback.rating;
-	psd_comment.comment: this.commentfeedback.comment;
-	psd_comment.author: this.commentfeedback.author;
-	psd_comment.date: Date.now();
-	
+    
 	this.dishcopy.comments.push(psd_comment);
 	
     this.dishservice.putDish(this.dishcopy)

@@ -21,7 +21,6 @@ export class ContactComponent implements OnInit {
   contactType = ContactType;
   errMess: string;
   inProgress = false;
-  showFeedback = false;
   
   formErrors = {
     'firstname': '',

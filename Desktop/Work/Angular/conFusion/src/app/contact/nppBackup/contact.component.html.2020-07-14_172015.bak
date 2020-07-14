@@ -35,7 +35,7 @@
       </div>
     </div>
   </div>
-  <div fxFlex fxFlexOffset="20px" class="form-size" [hidden]="inProgress || showFeedback" [@expand]>
+  <div fxFlex fxFlexOffset="20px" class="form-size" [hidden]="inProgress || showFeedback" [@flyInOut]>
     <h3>Send us your Feedback</h3>
 
     <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">

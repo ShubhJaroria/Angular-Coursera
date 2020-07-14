@@ -35,8 +35,9 @@
       </div>
     </div>
   </div>
-  <div fxFlex fxFlexOffset="20px" class="form-size" [hidden]="inProgress || showFeedback" [@expand]>
+  <div fxFlex fxFlexOffset="20px" class="form-size">
     <h3>Send us your Feedback</h3>
+    <p>{{ feedbackForm.value | json }} {{ feedbackForm.status | json }}</p>
 
     <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
       <p>
@@ -78,18 +79,9 @@
       </p>
       <button type="submit" [disabled] = "feedbackForm.invalid" mat-button class="background-primary text-floral-white">Submit</button>
     </form>
-  </div> 
-  <div *ngIf="showFeedback" [@expand]>
-	<h1>Your Submission</h1>
-	First Name: {{feedback.firstname}} <br>
-	Last Name: {{feedback.lastname}} <br>
-	Tel. No.: {{feedback.telnum}} <br>
-	Email: {{feedback.email}} <br>
-	Contact you?: {{feedback.agree}} <br>
-	How?: {{feedback.contacttype}} <br>
-	Feedback: {{feedback.message}}
   </div>
-  <div *ngIf="inProgress" [@expand]>
+  <h2>{{inProgress}}</h2>  
+  <div *ngIf="inProgress">
     <mat-spinner></mat-spinner><h4>Submission in Progress . . . Please Wait</h4>
   </div>
   <div fxFlex *ngIf="errMess">

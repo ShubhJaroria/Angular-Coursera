@@ -21,7 +21,6 @@ export class ContactComponent implements OnInit {
   contactType = ContactType;
   errMess: string;
   inProgress = false;
-  showFeedback = false;
   
   formErrors = {
     'firstname': '',
@@ -113,7 +112,7 @@ export class ContactComponent implements OnInit {
       message: ''
     });
 	this.feedbackFormDirective.resetForm();
-	this.inProgress = false;
+    this.inProgress = false;
 	this.showFeedback = true;
 	setTimeout(()=>{    //<<<---    using ()=> syntax
       this.showFeedback = false;}, 5000);

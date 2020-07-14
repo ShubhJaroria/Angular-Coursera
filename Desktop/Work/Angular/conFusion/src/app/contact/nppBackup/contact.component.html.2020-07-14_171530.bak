@@ -80,16 +80,9 @@
     </form>
   </div> 
   <div *ngIf="showFeedback" [@expand]>
-	<h1>Your Submission</h1>
-	First Name: {{feedback.firstname}} <br>
-	Last Name: {{feedback.lastname}} <br>
-	Tel. No.: {{feedback.telnum}} <br>
-	Email: {{feedback.email}} <br>
-	Contact you?: {{feedback.agree}} <br>
-	How?: {{feedback.contacttype}} <br>
-	Feedback: {{feedback.message}}
+	<h1>Hello</h1>
   </div>
-  <div *ngIf="inProgress" [@expand]>
+  <div *ngIf="inProgress">
     <mat-spinner></mat-spinner><h4>Submission in Progress . . . Please Wait</h4>
   </div>
   <div fxFlex *ngIf="errMess">
